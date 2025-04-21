@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.display-container {
+    border: 3px solid black;
+}
+
+#display {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 256px;
+    height: 64px;
+    border: 3px solid black;
+    padding: 16px;
+    font-size: 32px;
+    color: black;
+    font-weight: bold;
+    background-color: palegreen;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 3px solid black;
+}
+
+.container-row {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 64px;
+    height: 64px;
+    border: 3px solid black;
+    font-size: 32px;
+    color: white;
+    font-weight: bold;
+    background-color: slategray;
+}
+
+.button.operator {
+    background-color: darkslategray;
+}
+
+.button.clear {
+    background-color: chocolate;
+}
+
+.button.plus,
+.button.equals,
+.button.clear {
+    width: 128px;
+}
