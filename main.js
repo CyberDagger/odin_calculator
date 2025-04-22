@@ -86,14 +86,20 @@ function passOperation(key) {
 
 function solve() {
     if (operator) {
-        if (!numberEnd) {
-            y = displayWindow.textContent;
+        if ((operator === "/") && (displayWindow.textContent === "0")) {
+            clear();
+            numberEnd = true;
+            displayWindow.textContent = "KABOOM";
+        } else {
+            if (!numberEnd) {
+                y = displayWindow.textContent;
+            }
+            let solution = operate(Number(x), Number(y), operator);
+            solution = Number(solution.toPrecision(9));
+            displayWindow.textContent = solution;
+            x = solution;
+            numberEnd = true;
         }
-        let solution = operate(Number(x), Number(y), operator);
-        solution = solution.toPrecision(9);
-        displayWindow.textContent = solution;
-        x = solution;
-        numberEnd = true;
     }
 }
 
