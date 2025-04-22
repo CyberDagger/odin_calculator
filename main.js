@@ -21,12 +21,7 @@ const button_equals = document.querySelector("#button-equals");
 const button_clear = document.querySelector("#button-clear");
 const displayWindow = document.querySelector("#display");
 
-let x = "";
-let y = "";
-let operator = "";
-
 button_clear.addEventListener("click", () => clear());
-
 button_0.addEventListener("click", () => input("0"));
 button_1.addEventListener("click", () => input("1"));
 button_2.addEventListener("click", () => input("2"));
@@ -38,20 +33,28 @@ button_7.addEventListener("click", () => input("7"));
 button_8.addEventListener("click", () => input("8"));
 button_9.addEventListener("click", () => input("9"));
 button_decimal.addEventListener("click", () => input("."));
-
 button_add.addEventListener("click", () => passOperation("+"));
 button_subtract.addEventListener("click", () => passOperation("-"));
 button_multiply.addEventListener("click", () => passOperation("*"));
 button_divide.addEventListener("click", () => passOperation("/"));
-
 button_equals.addEventListener("click", () => solve());
+
+let x = "";
+let y = "";
+let operator = "";
+let numberEnd = false;
 
 /*---------------------*/
 /* Interface Functions */
 /*---------------------*/
 
 function input(key) {
-    displayWindow.textContent += key;
+    if (numberEnd) {
+        displayWindow.textContent = key;
+        numberEnd = false;
+    } else {
+        displayWindow.textContent += key;
+    }
 }
 
 function clear() {
@@ -67,7 +70,8 @@ function passOperation(key) {
     } else {
         x = displayWindow.textContent;
         operator = key;
-        displayWindow.textContent = "";
+        numberEnd = true;
+        //displayWindow.textContent = "";
     }
 }
 
