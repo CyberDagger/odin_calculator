@@ -62,16 +62,20 @@ function clear() {
     y = "";
     operator = "";
     displayWindow.textContent = "";
+    numberEnd = false;
 }
 
 function passOperation(key) {
     if (x) {
 
     } else {
+        if ((!displayWindow.textContent) && (key === "-")) {
+            displayWindow.textContent = "-";
+            return;
+        }
         x = displayWindow.textContent;
         operator = key;
         numberEnd = true;
-        //displayWindow.textContent = "";
     }
 }
 
