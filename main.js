@@ -67,7 +67,12 @@ function clear() {
 
 function passOperation(key) {
     if (x) {
-
+        if (numberEnd) {
+            operator = key;
+        } else {
+            solve();
+            operator = key;
+        }
     } else {
         if ((!displayWindow.textContent) && (key === "-")) {
             displayWindow.textContent = "-";
@@ -81,9 +86,13 @@ function passOperation(key) {
 
 function solve() {
     if (operator) {
-        y = displayWindow.textContent;
+        if (!numberEnd) {
+            y = displayWindow.textContent;
+        }
         let solution = operate(Number(x), Number(y), operator);
         displayWindow.textContent = solution;
+        x = solution;
+        numberEnd = true;
     }
 }
 
