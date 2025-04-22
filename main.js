@@ -66,21 +66,23 @@ function clear() {
 }
 
 function passOperation(key) {
-    if (x) {
-        if (numberEnd) {
-            operator = key;
+    if (displayWindow.textContent != "KABOOM") {
+        if (x) {
+            if (numberEnd) {
+                operator = key;
+            } else {
+                solve();
+                operator = key;
+            }
         } else {
-            solve();
+            if ((!displayWindow.textContent) && (key === "-")) {
+                displayWindow.textContent = "-";
+                return;
+            }
+            x = displayWindow.textContent;
             operator = key;
+            numberEnd = true;
         }
-    } else {
-        if ((!displayWindow.textContent) && (key === "-")) {
-            displayWindow.textContent = "-";
-            return;
-        }
-        x = displayWindow.textContent;
-        operator = key;
-        numberEnd = true;
     }
 }
 
