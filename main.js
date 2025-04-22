@@ -90,6 +90,7 @@ function solve() {
             y = displayWindow.textContent;
         }
         let solution = operate(Number(x), Number(y), operator);
+        solution = solution.toPrecision(9);
         displayWindow.textContent = solution;
         x = solution;
         numberEnd = true;
