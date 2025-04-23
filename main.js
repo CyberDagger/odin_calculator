@@ -49,6 +49,11 @@ let numberEnd = false;
 /*---------------------*/
 
 function input(key) {
+    if (key === ".") {
+        if (displayWindow.textContent.includes(".")) {
+            return;
+        }
+    }
     if (numberEnd) {
         displayWindow.textContent = key;
         numberEnd = false;
