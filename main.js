@@ -18,6 +18,7 @@ const button_subtract = document.querySelector("#button-subtract");
 const button_multiply = document.querySelector("#button-multiply");
 const button_divide = document.querySelector("#button-divide");
 const button_equals = document.querySelector("#button-equals");
+const button_back = document.querySelector("#button-back");
 const button_clear = document.querySelector("#button-clear");
 const displayWindow = document.querySelector("#display");
 
@@ -37,6 +38,7 @@ button_add.addEventListener("click", () => passOperation("+"));
 button_subtract.addEventListener("click", () => passOperation("-"));
 button_multiply.addEventListener("click", () => passOperation("*"));
 button_divide.addEventListener("click", () => passOperation("/"));
+button_back.addEventListener("click", () => erase());
 button_equals.addEventListener("click", () => solve());
 
 let x = "";
@@ -59,6 +61,12 @@ function input(key) {
         numberEnd = false;
     } else {
         displayWindow.textContent += key;
+    }
+}
+
+function erase() {
+    if (!numberEnd) {
+        displayWindow.textContent = displayWindow.textContent.slice(1);
     }
 }
 
