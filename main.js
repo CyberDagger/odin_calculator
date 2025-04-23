@@ -40,6 +40,7 @@ button_multiply.addEventListener("click", () => passOperation("*"));
 button_divide.addEventListener("click", () => passOperation("/"));
 button_back.addEventListener("click", () => erase());
 button_equals.addEventListener("click", () => solve());
+document.addEventListener("keydown", (event) => processKey(event.key));
 
 let x = "";
 let y = "";
@@ -49,6 +50,39 @@ let numberEnd = false;
 /*---------------------*/
 /* Interface Functions */
 /*---------------------*/
+
+function processKey(key) {
+    const nm = new RegExp('[0-9]');
+    const dc = new RegExp('[.,]');
+    const bk = new RegExp('Backspace');
+    const op = new RegExp('[-+*x\t]');
+    const eq = new RegExp('Enter|=');
+    const cl = new RegExp('Delete|Escape');
+    switch(true) {
+        case nm.test(key):
+            input(key);
+            break;
+        case dc.test(key):
+            input(".");
+            break;
+        case bk.test(key):
+            erase();
+            break;
+        case op.test(key):
+            if (key === "x") {
+                passOperation("*");
+            } else {
+                passOperation(key);
+            }
+            break;
+        case eq.test(key):
+            solve();
+            break;
+        case cl.test(key):
+            clear();
+            break;
+    }
+}
 
 function input(key) {
     if (key === ".") {
