@@ -86,6 +86,9 @@ function processKey(key) {
 }
 
 function input(key) {
+    if (displayWindow.textContent.toString().length >= DISPLAY_LENGTH) {
+        return;
+    }
     if (key === ".") {
         if (displayWindow.textContent.includes(".")) {
             return;
@@ -146,7 +149,7 @@ function solve() {
             }
             let solution = operate(Number(x), Number(y), operator);
             solution = Number(solution.toPrecision(DISPLAY_LENGTH - 1));
-            if (solution.length > DISPLAY_LENGTH) {
+            if (solution.toString().length > DISPLAY_LENGTH) {
                 displayWindow.textContent = "OVERFLOW";
             } else {
                 displayWindow.textContent = solution;

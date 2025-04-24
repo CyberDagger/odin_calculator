@@ -20,8 +20,7 @@ body {
     position: relative;
 }
 
-#display,
-#display-back {
+#display {
     box-sizing: border-box;
     display: flex;
     justify-content: flex-end;
@@ -32,21 +31,13 @@ body {
     width: 288px;
     height: 64px;
     padding: 6px;
+    background-color: palegreen;
     border: 5px inset lightgreen;
     border-radius: 8px;
+    color: black;
     font-family: Time, monospace;
     font-size: 32px;
     font-weight: bold;
-}
-
-#display {
-    border-color: rgba(0,0,0,0);
-    color: black;
-}
-
-#display-back {
-    background-color: palegreen;
-    color: mediumseagreen;
 }
 
 .button-container {
