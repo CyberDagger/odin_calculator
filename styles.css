@@ -32,20 +32,21 @@ body {
     width: 288px;
     height: 64px;
     padding: 6px;
+    border: 5px inset lightgreen;
+    border-radius: 8px;
     font-family: Time, monospace;
     font-size: 32px;
     font-weight: bold;
 }
 
 #display {
-    border: 5px solid rgba(0,0,0,0);
+    border-color: rgba(0,0,0,0);
     color: black;
 }
 
 #display-back {
-    border: 5px inset lightgreen;
-    color: mediumseagreen;
     background-color: palegreen;
+    color: mediumseagreen;
 }
 
 .button-container {
