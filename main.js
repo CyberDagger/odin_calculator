@@ -1,6 +1,7 @@
 /*----------------------*/
 /* Variable Definitions */
 /*----------------------*/
+const DISPLAY_LENGTH = 11;
 
 const button_0 = document.querySelector("#button-0");
 const button_1 = document.querySelector("#button-1");
@@ -144,8 +145,12 @@ function solve() {
                 y = displayWindow.textContent;
             }
             let solution = operate(Number(x), Number(y), operator);
-            solution = Number(solution.toPrecision(9));
-            displayWindow.textContent = solution;
+            solution = Number(solution.toPrecision(DISPLAY_LENGTH - 1));
+            if (solution.length > DISPLAY_LENGTH) {
+                displayWindow.textContent = "OVERFLOW";
+            } else {
+                displayWindow.textContent = solution;
+            }
             x = solution;
             numberEnd = true;
         }
