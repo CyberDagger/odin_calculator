@@ -11,8 +11,20 @@ body {
     align-items: center;
 }
 
+.calculator-container {
+    border: 8px outset #131515;
+    border-radius: 16px 16px 64px 64px;
+    outline: 5px solid black;
+    padding: 16px 8px 32px 8px;
+    background-color: #262A2B;
+}
+
 .display-container {
-    border: 3px solid black;
+    width: 294px;
+    height: 70px;
+    border-radius: 8px 8px 0 0;
+    background-color: #262A2B;
+    position: relative;
 }
 
 #display {
@@ -20,22 +32,28 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    width: 256px;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 288px;
     height: 64px;
-    border: 3px solid black;
-    padding: 16px;
+    padding: 6px;
+    background-color: #C1DFB9;
+    border: 5px inset #E6F2E3;
+    border-radius: 8px;
+    color: black;
     font-family: Time, monospace;
     font-size: 32px;
-    color: black;
     font-weight: bold;
-    background-color: palegreen;
 }
 
 .button-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: 3px solid black;
+    border-radius: 0 0 8px 8px;
+    background-color: #262A2B;
+    padding-top: 16px;
 }
 
 .container-row {
@@ -50,22 +68,43 @@ body {
     align-items: center;
     width: 64px;
     height: 64px;
-    border: 3px solid black;
+    border: 5px outset #899394;
+    border-radius: 16px;
+    margin: 4px;
     font-size: 32px;
-    color: white;
+    color: #F5F5F5;
     font-weight: bold;
-    background-color: slategray;
+    text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
+    background-color: #616A6B;
+}
+
+.button:active {
+    border-style: inset;
+    background-color: #575F60;
+    color: #D6D6D6;
 }
 
 .button.operator {
-    background-color: darkslategray;
+    background-color: #1F435B;
+    border: 5px outset #2F6589;
+}
+
+.button.operator:active {
+    border-style: inset;
+    background-color: #1A384C;
 }
 
 .button.clear {
-    background-color: chocolate;
+    background-color: #C97618;
+    border: 5px outset #E79536;
+}
+
+.button.clear:active {
+    border-style: inset;
+    background-color: #B76B15;
 }
 
 .button.equals,
 .button.clear {
-    width: 128px;
+    width: 136px;
 }
